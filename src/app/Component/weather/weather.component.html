@@ -1,0 +1,47 @@
+<div>
+  <h1 align="center">Weather App</h1>
+  <div class="main" align="center">
+
+      <div class="dropdown">
+          <!-- <div class="dropdown open">
+              <button class="btn btn-secondary dropdown-toggle m-3" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                          weather app
+                      </button>
+              <div class="dropdown-menu" aria-labelledby="triggerId">
+                  <button class="dropdown-item" href="#">city name</button>
+                  <button class="dropdown-item " href="#">city ID</button>
+                  <button class="dropdown-item " href="#">country</button>
+              </div>
+          </div> -->
+
+          <div class="form-group w-25">
+            <label for="status fw-bold ">Choose Search Type </label>
+            <select class="form-control" name="status" [(ngModel)]="weather.Search.DropDownValue">
+              <option value="">Please select</option>
+               <option [value] = "'city'" >City</option>
+               <option [value] = "'id'" >Id</option>
+            </select>
+        </div>
+          <div class="part">
+              <input type="text" [(ngModel)] ="weather.Search.SeachBoxValue"  name="selector" id="slr">
+              <button class="btn btn-primary" (click) = "weather.SearchSubmit()" id="btn">search</button>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input "  name="" id="" value="checkedValue" checked>
+              rememer me
+            </label>
+          </div>
+      </div>
+      <div class="m-3 w-50"  *ngIf="weather.Apiresponse">
+        <h4> Max Temp : {{weather.Apiresponse.main.temp_max}}</h4>
+        <h4> Min Temp : {{weather.Apiresponse.main.temp_min}}</h4>
+        <h4> Current Temp : {{weather.Apiresponse.main.temp}}</h4>
+        <h4> Humidity  : {{weather.Apiresponse.main.humidity}}</h4>
+
+
+
+      </div>
+  </div>
+</div>
