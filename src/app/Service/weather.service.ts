@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SearchModel } from '../Model/SearchModel';
-import { WeatherModel } from '../Model/WeatherModel';
+import { WeatherModel,Main } from '../Model/WeatherModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
-  Apiresponse?: WeatherModel;
+  Apiresponse: WeatherModel={};
+  mains: Main = {} ;
   Search :SearchModel={};
   private Url = "https://api.openweathermap.org/data/2.5/weather?" ;  // URL to web api
   private key ="74ee4c17d9777b1febb466925d7dd0bf"
@@ -27,16 +28,13 @@ export class WeatherService {
 
       console.log(this.Search.DropDownValue , this.Search.SeachBoxValue)
       this.http.get<any>(this.finalurl).subscribe(data => {
-        if(data != null ){
           this.Apiresponse = data;
           console.log(this.Apiresponse);
-        }
-        else{
-          this.Apiresponse ;
-        }
 
-
-
+      },error =>
+      {
+        this.Apiresponse.main =this.mains ;
+        alert("City entered doesnt exist")
       })
     }
 

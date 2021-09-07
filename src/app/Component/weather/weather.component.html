@@ -35,10 +35,10 @@
           </div>
       </div>
       <div class="m-3 w-50"  *ngIf="weather.Apiresponse">
-        <h4> Max Temp : {{weather.Apiresponse.main.temp_max}}</h4>
-        <h4> Min Temp : {{weather.Apiresponse.main.temp_min}}</h4>
-        <h4> Current Temp : {{weather.Apiresponse.main.temp}}</h4>
-        <h4> Humidity  : {{weather.Apiresponse.main.humidity}}</h4>
+        <h4> Max Temp : {{weather.Apiresponse?.main?.temp_max}}</h4>
+        <h4> Min Temp : {{weather.Apiresponse?.main?.temp_min}}</h4>
+        <h4> Current Temp : {{weather.Apiresponse?.main?.temp}}</h4>
+        <h4> Humidity  : {{weather.Apiresponse?.main?.humidity}}</h4>
 
 
 
